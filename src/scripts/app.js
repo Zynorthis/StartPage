@@ -1,3 +1,6 @@
+"using strict";
+var logService = consoleService(false, true);
+var weatherService = weatherService();
 (function(){
 
     function getCurrentTime() {
@@ -5,12 +8,12 @@
         let hours = new Date(currentTime).getHours();
         let minutes = new Date(currentTime).getMinutes();
         let seconds = new Date(currentTime).getSeconds();
-        console.debug(`Current Time Data: \n\t Hours: ${hours}\n\t Minutes: ${minutes}\n\t Seconds: ${seconds}`);
+
         if (seconds < 10) {
             seconds = `0` + `${seconds}`;
         }
 
-        if (hours < 11) {
+        if (hours < 12) {
             if (hours === 0) {
                 return `${hours + 12} : ${minutes} : ${seconds} AM`;
             } else {
@@ -30,8 +33,6 @@
         let month = new Date(currentTime).getMonth() + 1; // Janary starts at 0
         let day = new Date(currentTime).getDate();
         let year = new Date(currentTime).getFullYear();
-        
-        console.debug(`Current Date Data: \n\t Month: ${month}\n\t Day: ${day}\n\t Year: ${year}`);
 
         let dayOfTheWeek = new Date(currentTime).getDay();
         setDay(dayOfTheWeek);
@@ -69,7 +70,7 @@
     }
 
     function injectHelloMessage() {
-        console.debug("Injecting Hello Message.");
+        logService.debug("Injecting Hello Message.");
 
         let currentTime = Date.now();
         let hours = new Date(currentTime).getHours();
@@ -88,26 +89,25 @@
 
         let welcomeElement = document.getElementById("welcome-message");
         welcomeElement.innerHTML = greeting;
-        console.debug("Method 'InjectHelloMessage' ran successfully.");
+        logService.debug("Method 'InjectHelloMessage' ran successfully.");
     }
 
     function setDateTime() {
-        console.debug("Setting Date/Time/Day");
         let time = getCurrentTime();
         let date = getCurrentDate();
-        console.debug(`${time}  |  ${date}`);
 
         let timeElement = document.getElementById("time");
         timeElement.innerHTML = time;
 
         let dateElement = document.getElementById("date");
         dateElement.innerHTML = date;
-        var t = setTimeout(setDateTime, 500);
-        console.debug("Date, Time, and Day injected into front-end.");
+        setTimeout(setDateTime, 500);
     }
 
     function setWeather() {
         //TODO: Setup weather API wrapper to pull weather data
+        getLocation();
+        weatherService.get
 
         //TODO: User weather wrapper to set innerhtml weather element to have correct data
     }
@@ -125,7 +125,23 @@
         //TODO: Use RSS Feed wrapper to show data in rss feed element
     }
 
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(setLocalPosition);
+        } else {
+            logService.log("Geolocation is not supported by this browser.");
+        }
+    }
+      
+    function setLocalPosition(position) {
+        logService.debug("Local Latitude: " + position.coords.latitude + "\nLocal Longitude: " + position.coords.longitude);
+        localLat = position.coords.latitude;
+        localLong = position.coords.longitude;
+    }
+
     // run logic
+    logService.log("App Started.");
     injectHelloMessage();
     setDateTime();
+    getLocation();
 })();
