@@ -1,10 +1,16 @@
 'using strict';
 
-var consoleService = function(isDate, isTime){
+/** A JS Console wrapper with better Date/Time output
+ * 
+ * If [isDate] is set to true, the date will be printed
+ * 
+ * If [isTime] is set to true, the time will be printed
+*/
+const consoleService = function(isDate, isTime){
     let dateTime = new Date();
     let formattedDateTime;
     
-    var log = function(input) {
+    let log = function(input) {
         if (!isDate && !isTime) {
             console.log("[LOG]: " + input);
         } else {
@@ -13,7 +19,7 @@ var consoleService = function(isDate, isTime){
         }
     };
 
-    var warn = function(input) {
+    let warn = function(input) {
         if (!isDate && !isTime) {
             console.warn("[WARN]: " + input);
         } else {
@@ -22,7 +28,7 @@ var consoleService = function(isDate, isTime){
         }
     };
 
-    var debug = function(input){
+    let debug = function(input){
         if (!isDate && !isTime) {
             console.debug("[DEBUG]: " + input);
         } else {
@@ -31,7 +37,7 @@ var consoleService = function(isDate, isTime){
         }
     };
 
-    var error = function(input){
+    let error = function(input){
         if (!isDate && !isTime) {
             console.error("[ERROR]: " + input);
         } else {
@@ -40,7 +46,7 @@ var consoleService = function(isDate, isTime){
         }
     };
 
-    var info = function(input){
+    let info = function(input){
         if (!isDate && !isTime) {
             console.info("[INFO]: " + input);
         } else {

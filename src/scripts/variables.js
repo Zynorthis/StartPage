@@ -1,7 +1,7 @@
 // User Variables
 
-var username = "Zynorthis";
-var links = {
+const username = "Zynorthis";
+const links = {
     "Google" : "https://www.google.com/",
     "Github" : "https://www.github.com/"
 };

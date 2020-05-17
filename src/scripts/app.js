@@ -1,6 +1,6 @@
 "using strict";
-var logService = consoleService(false, true);
-var weatherService = weatherService();
+const logService = consoleService(false, true);
+const weatherService = weatherService();
 (function(){
 
     function getCurrentTime() {
@@ -107,7 +107,8 @@ var weatherService = weatherService();
     function setWeather() {
         //TODO: Setup weather API wrapper to pull weather data
         getLocation();
-        weatherService.get
+        if (localLat === 0 || localLong === 0) return
+        weatherService.getCurrentWeather(localLat, localLong);
 
         //TODO: User weather wrapper to set innerhtml weather element to have correct data
     }

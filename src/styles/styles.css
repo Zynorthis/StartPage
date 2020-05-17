@@ -46,3 +46,19 @@ body {
 #time, #date, #day {
     display: flex;
 }
+
+.weather input {
+    margin-top: 15px;
+    border: 1px solid gray;
+}
+
+.weather p, .weather input {
+    font-size: 20px;
+}
+
+.weather input::placeholder {
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+}

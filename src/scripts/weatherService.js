@@ -1,3 +1,3 @@
-var weatherService = function () {
+const weatherService = function () {
     
 }
