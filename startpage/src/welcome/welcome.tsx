@@ -9,7 +9,7 @@ export const Welcome = (): JSX.Element => {
 
     const updateCounter = (reset: boolean = false): void => {
         console.log(`reset value: ${reset}`);
-        if (reset == true) {
+        if (reset === true) {
             setTestValue(0);
             return;
         }
