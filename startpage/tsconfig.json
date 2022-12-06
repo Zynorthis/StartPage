@@ -23,6 +23,7 @@
     "allowUnreachableCode": false
   },
   "include": [
-    "src"
+    "src/*",
+    "src/welcome/*"
   ]
 }

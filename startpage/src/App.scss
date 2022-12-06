@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+  font-size: calc(10px + 2vmin);
+}
+
+.settings {
+  padding: .5rem;
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.settings:hover {
+  border: 2px solid #61dafb;
+}
+
+.settings:visited {
+  color: white;
+}
