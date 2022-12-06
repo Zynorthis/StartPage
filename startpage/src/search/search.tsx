@@ -2,7 +2,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { performSearch } from "@startpage/search";
 import { useState } from "react";
-import './search.scss';
+import './search.scss'; 
 
 export const Search = (): JSX.Element => {
     const [searchQuery, setSearchQuery] = useState("");
