@@ -7,23 +7,14 @@ export const Welcome = (): JSX.Element => {
     const [testValue, setTestValue] = useStorage("Local Storage Test", 0);
     const [username, setUsername] = useStorage("Username", "Bassic");
 
-    const updateCounter = (reset: boolean = false): void => {
-        console.log(`reset value: ${reset}`);
-        if (reset === true) {
-            setTestValue(0);
-            return;
-        }
-        setTestValue(testValue + 1);
-    };
-
     return (
         <div className="welcome-section">
             <p>Welcome Back, {username}</p>
             <button
-                onClick={() => updateCounter()}
+                onClick={() => setTestValue(testValue + 1)}
                 className='update-button'>Update Counter</button>
             <button
-                onClick={() => updateCounter(true)}
+                onClick={() => setTestValue(0)}
                 className='reset-button'>Reset Counter</button>
             <p>Current Count: {testValue}</p>
         </div>
