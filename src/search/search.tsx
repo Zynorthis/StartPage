@@ -5,7 +5,7 @@ import { useState } from "react";
 import './search.scss'; 
 
 export const Search = (): JSX.Element => {
-    const [searchQuery, setSearchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState("test");
     const submitSearch = () => performSearch(searchQuery, 'google', {newTab: true, directLink: true})
 
     return (
