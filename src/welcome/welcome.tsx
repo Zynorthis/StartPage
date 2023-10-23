@@ -10,7 +10,7 @@ export const Welcome = (): JSX.Element => {
     const { date, time, message } = useDate();
 
     return (
-        <div className="welcome-section">
+        <div className="welcome">
             <p>{message}, {username}</p>
             <p>{date}</p>
             <p>{time}</p>

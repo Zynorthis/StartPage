@@ -5,8 +5,9 @@ import './weather.scss';
 export const Weather = (): JSX.Element => {
     let lat = '';
     let long = '';
-    const [API_KEY, saveAPIKeyToLocalStorage] = useStorage('ewjnovcsanpon', '3a4c122fd18ce8d724e96e9b08c99064');
+    const [API_KEY, saveAPIKeyToLocalStorage] = useStorage('ewjnovcsanpon', 'bfb3389090579cea93abddee253b16f5');
 
+    console.log('getting navigator permissions...');
     navigator.permissions.query({ name: 'geolocation' })
         .then((result) => {
             console.log(`Result State: ${result.state}`);
